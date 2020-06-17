@@ -1,5 +1,6 @@
-package abika.sinau.mahasiswaappabika
+package abika.sinau.mahasiswaappabika.ui
 
+import abika.sinau.mahasiswaappabika.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
