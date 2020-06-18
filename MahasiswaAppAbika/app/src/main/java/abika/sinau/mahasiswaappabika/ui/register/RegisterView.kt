@@ -1,6 +1,6 @@
 package abika.sinau.mahasiswaappabika.ui.register
 
-import abika.sinau.mahasiswaappabika.model.ResponseRegisterUser
+import abika.sinau.mahasiswaappabika.model.ResponseUserRegister
 
 /**
  * Created by Abika Chairul Yusri
@@ -9,7 +9,7 @@ import abika.sinau.mahasiswaappabika.model.ResponseRegisterUser
  */
 interface RegisterView {
 
-    fun successRegister(response: ResponseRegisterUser)
+    fun successRegister(response: ResponseUserRegister)
     fun errorRegister(msg: String)
     fun empty()
     fun noMatch()

@@ -1,7 +1,7 @@
 package abika.sinau.mahasiswaappabika.network
 
-import abika.sinau.mahasiswaappabika.model.ResponseLoginUser
-import abika.sinau.mahasiswaappabika.model.ResponseRegisterUser
+import abika.sinau.mahasiswaappabika.model.ResponseUserLogin
+import abika.sinau.mahasiswaappabika.model.ResponseUserRegister
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.Field
@@ -19,14 +19,14 @@ interface UserService {
     @POST("userRegister.php")
     fun register(
         @Field("nama") nama: String,
-        @Field("nama") email: String,
-        @Field("nama") password: String
-    ):Single<ResponseRegisterUser>
+        @Field("email") email: String,
+        @Field("password") password: String
+    ):Single<ResponseUserRegister>
 
     @FormUrlEncoded
     @POST("userLogin.php")
     fun login(
-        @Field("nama") email: String,
-        @Field("nama") password: String
-    ):Flowable<ResponseLoginUser>
+        @Field("email") email: String,
+        @Field("password") password: String
+    ):Flowable<ResponseUserLogin>
 }

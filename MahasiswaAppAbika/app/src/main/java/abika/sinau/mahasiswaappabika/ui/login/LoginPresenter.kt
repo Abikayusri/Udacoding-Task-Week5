@@ -14,7 +14,7 @@ class LoginPresenter(val login: LoginView) {
     fun login(email: String, password: String) {
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
-            ConfigNetwork.getNetwork().login(email, password)
+            ConfigNetwork.userService().login(email, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->

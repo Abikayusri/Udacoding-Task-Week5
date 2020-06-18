@@ -1,7 +1,10 @@
 package abika.sinau.mahasiswaappabika.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class DataItemAnggota(
 
 	@field:SerializedName("mahasiswa_alamat")
@@ -19,9 +22,9 @@ data class DataItemAnggota(
 	@field:SerializedName("mahasiswa_nama")
 	val mahasiswaNama: String? = null,
 
-	@field:SerializedName("mahasiswa_nik")
-	val mahasiswaNik: String? = null,
+	@field:SerializedName("mahasiswa_nim")
+	val mahasiswaNim: String? = null,
 
 	@field:SerializedName("mahasiswa_semester")
 	val mahasiswaSemester: String? = null
-)
+) : Parcelable

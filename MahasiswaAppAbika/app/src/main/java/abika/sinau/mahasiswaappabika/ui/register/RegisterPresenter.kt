@@ -30,11 +30,11 @@ class RegisterPresenter(val registerView: RegisterView) {
 
                 else -> {
                     registerView.hideProgressBar()
-                    ConfigNetwork.getNetwork().register(nama, email, password)
+                    ConfigNetwork.userService().register(nama, email, password)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ response ->
-                            if (response.isSuccess ?: true){
+                            if (response.isSuccess ?: true) {
                                 registerView.hideProgressBar()
                                 registerView.successRegister(response)
                             } else {

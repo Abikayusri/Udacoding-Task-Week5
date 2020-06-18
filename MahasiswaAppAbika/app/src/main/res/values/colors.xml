@@ -3,6 +3,8 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#D34D91</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="softRed">#FCA19E</color>
     <color name="softPink">#FCE8FD</color>
     <color name="darkPink">#EC5CA5</color>

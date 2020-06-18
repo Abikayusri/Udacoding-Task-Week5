@@ -2,7 +2,7 @@ package abika.sinau.mahasiswaappabika.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseGetData(
+data class ResponseAnggotaData(
 
     @field:SerializedName("data")
 	val data: List<DataItemAnggota?>? = null,

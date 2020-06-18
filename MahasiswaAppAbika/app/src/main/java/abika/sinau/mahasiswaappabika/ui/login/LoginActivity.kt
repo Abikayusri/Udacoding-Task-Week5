@@ -3,7 +3,7 @@ package abika.sinau.mahasiswaappabika.ui.login
 import abika.sinau.mahasiswaappabika.R
 import abika.sinau.mahasiswaappabika.helper.SessionManager
 import abika.sinau.mahasiswaappabika.model.DataItemUser
-import abika.sinau.mahasiswaappabika.ui.MainActivity
+import abika.sinau.mahasiswaappabika.ui.main.MainActivity
 import abika.sinau.mahasiswaappabika.ui.register.RegisterActivity
 import android.content.Intent
 import android.os.Bundle
@@ -36,9 +36,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
     override fun loginSuccess(msg: String, user: List<DataItemUser?>?) {
         val session = SessionManager(this)
         session.email = user?.get(0)?.userEmail
-        session.email = user?.get(0)?.userNama
+        session.nama = user?.get(0)?.userNama
         session.isLogin = true
         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        finishAffinity()
     }
 
     override fun errorLogin(msg: String) {

@@ -1,8 +1,8 @@
 package abika.sinau.mahasiswaappabika.ui.register
 
 import abika.sinau.mahasiswaappabika.R
-import abika.sinau.mahasiswaappabika.model.ResponseRegisterUser
-import abika.sinau.mahasiswaappabika.ui.MainActivity
+import abika.sinau.mahasiswaappabika.model.ResponseUserRegister
+import abika.sinau.mahasiswaappabika.ui.login.LoginActivity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -34,8 +34,8 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
         }
     }
 
-    override fun successRegister(response: ResponseRegisterUser) {
-        startActivity(Intent(this@RegisterActivity, MainActivity::class.java))
+    override fun successRegister(response: ResponseUserRegister) {
+        startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
     }
 
     override fun errorRegister(msg: String) {

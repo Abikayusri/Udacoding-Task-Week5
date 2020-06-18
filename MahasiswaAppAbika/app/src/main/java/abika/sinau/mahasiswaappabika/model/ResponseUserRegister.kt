@@ -2,7 +2,7 @@ package abika.sinau.mahasiswaappabika.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseRegisterUser(
+data class ResponseUserRegister(
 
 	@field:SerializedName("message")
 	val message: String? = null,

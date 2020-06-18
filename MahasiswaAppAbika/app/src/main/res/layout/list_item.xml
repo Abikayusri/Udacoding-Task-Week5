@@ -8,6 +8,7 @@
     app:cardElevation="12dp">
 
     <LinearLayout
+        android:id="@+id/llItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -31,7 +32,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvItemNIK"
+                android:id="@+id/tvItemNIM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10dp"
