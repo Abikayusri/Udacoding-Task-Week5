@@ -23,13 +23,21 @@ interface AnggotaService {
     //Insert Data
     @FormUrlEncoded
     @POST("insertData.php")
-    fun insertData(): Single<ResponseAnggotaAction>
+    fun insertData(
+        @Field("mahasiswa_nim") nim: String,
+        @Field("mahasiswa_nama") nama: String,
+        @Field("mahasiswa_nohp") nohp: String,
+        @Field("mahasiswa_jurusan") jurusan: String,
+        @Field("mahasiswa_semester") semester: String,
+        @Field("mahasiswa_alamat") alamat: String
+    ): Single<ResponseAnggotaAction>
 
     //Update Data
     @FormUrlEncoded
     @POST("updateData.php")
     fun updateData(
         @Field("id_mahasiswa") id: String,
+        @Field("mahasiswa_nim") nim: String,
         @Field("mahasiswa_nama") nama: String,
         @Field("mahasiswa_nohp") nohp: String,
         @Field("mahasiswa_jurusan") jurusan: String,

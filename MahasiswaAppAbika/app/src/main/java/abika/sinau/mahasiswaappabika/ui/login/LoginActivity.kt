@@ -7,6 +7,7 @@ import abika.sinau.mahasiswaappabika.ui.main.MainActivity
 import abika.sinau.mahasiswaappabika.ui.register.RegisterActivity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -44,5 +45,13 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     override fun errorLogin(msg: String) {
         Toast.makeText(this@LoginActivity, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun startProgressBar() {
+        pbLogin.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        pbLogin.visibility = View.GONE
     }
 }

@@ -65,8 +65,7 @@
             </FrameLayout>
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                style=""
+                android:id="@+id/tbMain"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@null"
@@ -124,6 +123,7 @@
         app:maxImageSize="30dp" />
 
     <ProgressBar
+        android:id="@+id/pbMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

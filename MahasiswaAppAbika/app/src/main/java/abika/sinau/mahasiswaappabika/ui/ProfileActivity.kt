@@ -11,13 +11,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        //actionbar
-//        val actionbar = supportActionBar
-        //set actionbar title
-//        actionbar!!.title = "Profile"
-        //set back button
-//        actionbar.setDisplayHomeAsUpEnabled(true)
-//        actionbar.setDisplayShowHomeEnabled(true)
+        initToolbar()
 
         val session = SessionManager(this)
 
@@ -25,8 +19,9 @@ class ProfileActivity : AppCompatActivity() {
         tvProfileEmail.text = session.email
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+    private fun initToolbar() {
+        tbProfile.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 }

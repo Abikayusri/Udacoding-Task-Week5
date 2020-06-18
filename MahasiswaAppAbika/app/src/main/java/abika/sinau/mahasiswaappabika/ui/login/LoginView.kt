@@ -10,4 +10,6 @@ import abika.sinau.mahasiswaappabika.model.DataItemUser
 interface LoginView {
     fun loginSuccess(msg: String, user: List<DataItemUser?>?)
     fun errorLogin(msg: String)
+    fun startProgressBar()
+    fun hideProgressBar()
 }

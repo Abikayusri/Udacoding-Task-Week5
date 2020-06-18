@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_action.*
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity(), RegisterView {
@@ -26,11 +27,30 @@ class RegisterActivity : AppCompatActivity(), RegisterView {
             val password = etRegisPassword.text.toString()
             val conPassword = etRegisConPassword.text.toString()
 
+            validateData()
+
             presenter?.register(nama, email, password, conPassword)
         }
 
         btnCancel.setOnClickListener {
             finish()
+        }
+    }
+
+    fun validateData() {
+        when {
+            etRegisName.text.isEmpty() -> {
+                etRegisName.error = "NIM tidak boleh kosong"
+            }
+            etRegisEmail.text.isEmpty() -> {
+                etRegisEmail.error = "Nama tidak boleh kosong"
+            }
+            etRegisPassword.text.isEmpty() -> {
+                etRegisPassword.error = "Password tidak boleh kosong"
+            }
+            etRegisConPassword.text.isEmpty() -> {
+                etRegisConPassword.error = "Konfirmasi Password tidak boleh kosong"
+            }
         }
     }
 

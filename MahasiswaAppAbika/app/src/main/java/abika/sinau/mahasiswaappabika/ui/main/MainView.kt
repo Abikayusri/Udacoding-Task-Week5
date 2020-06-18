@@ -10,6 +10,8 @@ import abika.sinau.mahasiswaappabika.model.DataItemAnggota
 interface MainView {
     fun onSuccess(msg: String, mahasiswa: List<DataItemAnggota?>?)
     fun onError(msg: String)
+    fun startProgressBar()
+    fun hideProgressBar()
 
 //    fun detail(item: DataItemAnggota?)
 //    fun hapus(item: DataItemAnggota?)

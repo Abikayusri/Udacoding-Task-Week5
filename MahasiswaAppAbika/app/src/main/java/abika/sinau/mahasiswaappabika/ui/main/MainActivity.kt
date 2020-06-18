@@ -5,6 +5,7 @@ import abika.sinau.mahasiswaappabika.adapter.MahasiswaAdapter
 import abika.sinau.mahasiswaappabika.helper.SessionManager
 import abika.sinau.mahasiswaappabika.model.DataItemAnggota
 import abika.sinau.mahasiswaappabika.ui.ProfileActivity
+import abika.sinau.mahasiswaappabika.ui.input.ActionActivity
 import abika.sinau.mahasiswaappabika.ui.login.LoginActivity
 import android.content.Intent
 import android.os.Bundle
@@ -31,10 +32,13 @@ class MainActivity : AppCompatActivity(), MainView {
         presenter = MainPresenter(this)
         presenter?.getMahasiswa()
 
-        val toolbar: Toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        val toolbar: Toolbar = findViewById<View>(R.id.tbMain) as Toolbar
         setSupportActionBar(toolbar)
         title = "Home"
 
+        fab.setOnClickListener {
+            startActivity(Intent(this@MainActivity, ActionActivity::class.java))
+        }
 
     }
 
@@ -73,5 +77,18 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun onError(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun startProgressBar() {
+        pbMain.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        pbMain.visibility = View.GONE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter?.getMahasiswa()
     }
 }

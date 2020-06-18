@@ -2,6 +2,9 @@ package abika.sinau.mahasiswaappabika.adapter
 
 import abika.sinau.mahasiswaappabika.R
 import abika.sinau.mahasiswaappabika.model.DataItemAnggota
+import abika.sinau.mahasiswaappabika.ui.input.ActionActivity
+import android.app.AlertDialog
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,22 +40,39 @@ class MahasiswaAdapter(val data: List<DataItemAnggota?>?) :
 
         holder.itemView.setOnClickListener {
 //            itemClick.detail(item)
-            Toast.makeText(context, "Anda meneka ${data?.get(position)?.mahasiswaNama}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                context,
+                "Anda meneka ${data?.get(position)?.mahasiswaNama}",
+                Toast.LENGTH_SHORT
+            ).show()
 
-
+            val detail = Intent(context, ActionActivity::class.java)
+            detail.putExtra("Data", item)
+            context.startActivity(detail)
         }
 
         holder.hapus.setOnClickListener {
 //            itemClick.hapus(item)
+            AlertDialog.Builder(context).apply {
+                setTitle("Hapus Data")
+                setMessage("Yakin mau hapus data?")
+                setPositiveButton("Hapus") { dialog, which ->
+                    item?.idMahasiswa
+                }
+                setNegativeButton("Batal") { dialog, which ->
+                    dialog.dismiss()
+                }
+            }
         }
     }
 
-    class MahasiswaViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+    class MahasiswaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nim = view.tvItemNIM
         val nama = view.tvItemNama
         val jurusan = view.tvItemJurusan
         val hapus = view.btnHapus
     }
+
 
 //    interface OnClickListener{
 //        fun detail(item: DataItemAnggota?)
