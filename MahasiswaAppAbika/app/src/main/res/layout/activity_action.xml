@@ -88,6 +88,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_text_2"
             android:hint="Masukkan Alamat"
+            android:maxLines="1"
             android:padding="16dp" />
 
         <LinearLayout

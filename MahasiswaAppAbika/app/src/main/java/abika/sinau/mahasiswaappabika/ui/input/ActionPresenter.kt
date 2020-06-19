@@ -29,6 +29,10 @@ class ActionPresenter(val actionView: ActionView) {
                     actionView.hideProgressBar()
                     actionView.inputError("Nomor HP kurang lengkap")
                 }
+                semester > 14.toString() -> {
+                    actionView.hideProgressBar()
+                    actionView.inputError("Masukkan semester dengan benar")
+                }
                 else -> {
                     actionView.hideProgressBar()
                     ConfigNetwork.anggotaService()
@@ -72,6 +76,10 @@ class ActionPresenter(val actionView: ActionView) {
                 nohp.length < 12 -> {
                     actionView.hideProgressBar()
                     actionView.inputError("Nomor HP kurang lengkap")
+                }
+                semester > 14.toString() -> {
+                    actionView.hideProgressBar()
+                    actionView.inputError("Masukkan semester dengan benar")
                 }
                 else -> {
                     actionView.hideProgressBar()
