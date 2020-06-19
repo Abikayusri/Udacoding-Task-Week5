@@ -32,7 +32,7 @@ class ActionPresenter(val actionView: ActionView) {
                 else -> {
                     actionView.hideProgressBar()
                     ConfigNetwork.anggotaService()
-                        .insertData(nim, nama, nohp, jurusan, semester, alamat)
+                        .insertData(nama, nim, nohp, jurusan, semester, alamat)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ response ->
@@ -96,36 +96,6 @@ class ActionPresenter(val actionView: ActionView) {
         } else {
             actionView.hideProgressBar()
             actionView.empty()
-        }
-    }
-
-    fun validateData(
-        nim: String,
-        nama: String,
-        nohp: String,
-        jurusan: String,
-        semester: String,
-        alamat: String
-    ) {
-        when {
-            nim.isEmpty() -> {
-                actionView.inputError("NIM belum di isi")
-            }
-            nama.isEmpty() -> {
-                actionView.inputError("Nama belum di isi")
-            }
-            nohp.isEmpty() -> {
-                actionView.inputError("Nomor HP belum di isi")
-            }
-            jurusan.isEmpty() -> {
-                actionView.inputError("Jurusan belum di isi")
-            }
-            semester.isEmpty() -> {
-                actionView.inputError("Semester belum di isi")
-            }
-            alamat.isEmpty() -> {
-                actionView.inputError("Alamat belum di isi")
-            }
         }
     }
 }

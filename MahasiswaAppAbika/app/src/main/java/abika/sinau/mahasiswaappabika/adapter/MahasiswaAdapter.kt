@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.list_item.view.*
  * on Thursday, 18 June 2020
  * Bismillahirrahmanirrahim
  */
-class MahasiswaAdapter(val data: List<DataItemAnggota?>?) :
+class MahasiswaAdapter(val data: List<DataItemAnggota?>?, val itemClick: OnClickListener) :
     RecyclerView.Adapter<MahasiswaAdapter.MahasiswaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MahasiswaViewHolder {
@@ -42,7 +42,7 @@ class MahasiswaAdapter(val data: List<DataItemAnggota?>?) :
 //            itemClick.detail(item)
             Toast.makeText(
                 context,
-                "Anda meneka ${data?.get(position)?.mahasiswaNama}",
+                "Anda menekan ${data?.get(position)?.mahasiswaNama}",
                 Toast.LENGTH_SHORT
             ).show()
 
@@ -52,17 +52,7 @@ class MahasiswaAdapter(val data: List<DataItemAnggota?>?) :
         }
 
         holder.hapus.setOnClickListener {
-//            itemClick.hapus(item)
-            AlertDialog.Builder(context).apply {
-                setTitle("Hapus Data")
-                setMessage("Yakin mau hapus data?")
-                setPositiveButton("Hapus") { dialog, which ->
-                    item?.idMahasiswa
-                }
-                setNegativeButton("Batal") { dialog, which ->
-                    dialog.dismiss()
-                }
-            }
+            itemClick.hapus(item)
         }
     }
 
@@ -74,8 +64,7 @@ class MahasiswaAdapter(val data: List<DataItemAnggota?>?) :
     }
 
 
-//    interface OnClickListener{
-//        fun detail(item: DataItemAnggota?)
-//        fun hapus(item: DataItemAnggota?)
-//    }
+    interface OnClickListener{
+        fun hapus(item: DataItemAnggota?)
+    }
 }

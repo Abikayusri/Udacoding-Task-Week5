@@ -28,5 +28,5 @@ interface UserService {
     fun login(
         @Field("email") email: String,
         @Field("password") password: String
-    ):Flowable<ResponseUserLogin>
+    ):Single<ResponseUserLogin>
 }

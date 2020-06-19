@@ -23,5 +23,8 @@ class ProfileActivity : AppCompatActivity() {
         tbProfile.setNavigationOnClickListener {
             onBackPressed()
         }
+        tbProfile.title = "Pofile"
     }
+
+    // gak ada suaranya mas?
 }

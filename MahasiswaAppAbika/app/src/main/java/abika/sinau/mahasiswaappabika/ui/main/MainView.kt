@@ -13,6 +13,8 @@ interface MainView {
     fun startProgressBar()
     fun hideProgressBar()
 
+    fun hapusSuccess(msg: String)
+
 //    fun detail(item: DataItemAnggota?)
 //    fun hapus(item: DataItemAnggota?)
 }

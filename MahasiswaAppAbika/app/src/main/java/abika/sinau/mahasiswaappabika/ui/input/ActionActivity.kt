@@ -4,6 +4,7 @@ import abika.sinau.mahasiswaappabika.R
 import abika.sinau.mahasiswaappabika.model.DataItemAnggota
 import abika.sinau.mahasiswaappabika.model.ResponseAnggotaAction
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,12 @@ import kotlinx.android.synthetic.main.activity_action.*
 
 class ActionActivity : AppCompatActivity(), ActionView {
 
+    var nim: String? = null
+    var nama: String? = null
+    var nohp: String? = null
+    var jurusan: String? = null
+    var semester: String? = null
+    var alamat: String? = null
     private var presenter: ActionPresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,13 +29,6 @@ class ActionActivity : AppCompatActivity(), ActionView {
         initToolbar()
 
         val getData = intent.getParcelableExtra<DataItemAnggota>("Data")
-
-        val nim = etNIM.text.toString()
-        val nama = etNama.text.toString()
-        val nohp = etNoHp.text.toString()
-        val jurusan = etJurusan.text.toString()
-        val semester = etSemester.text.toString()
-        val alamat = etAlamat.text.toString()
 
         if (getData != null) {
             etNIM.setText(getData.mahasiswaNim)
@@ -45,22 +45,39 @@ class ActionActivity : AppCompatActivity(), ActionView {
         }
 
         btnSave.setOnClickListener {
+            nim = etNIM.text.toString()
+            nama = etNama.text.toString()
+            nohp = etNoHp.text.toString()
+            jurusan = etJurusan.text.toString()
+            semester = etSemester.text.toString()
+            alamat = etAlamat.text.toString()
+
             when (btnSave.text) {
                 "Update" -> {
+                    Log.d("test", "0")
                     validateData()
                     presenter?.updateData(
-                        getData?.idMahasiswa!!,
-                        nim,
-                        nama,
-                        nohp,
-                        jurusan,
-                        semester,
-                        alamat
+                        getData?.idMahasiswa ?: "",
+                        nim ?: "",
+                        nama ?: "",
+                        nohp ?: "",
+                        jurusan ?: "",
+                        semester ?: "",
+                        alamat ?: ""
                     )
                 }
                 else -> {
+                    Log.d("test", "1")
                     validateData()
-                    presenter?.inputData(nim, nama, nohp, jurusan, semester, alamat)
+                    presenter?.inputData(
+                        nim ?: "",
+                        nama ?: "",
+                        nohp ?: "",
+                        jurusan ?: "",
+                        semester ?: "",
+                        alamat ?: ""
+                    )
+                    Log.d("Data",nim ?: "")
                 }
             }
         }

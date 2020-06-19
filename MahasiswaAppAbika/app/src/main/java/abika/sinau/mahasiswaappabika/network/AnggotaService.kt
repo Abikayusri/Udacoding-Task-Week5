@@ -24,30 +24,30 @@ interface AnggotaService {
     @FormUrlEncoded
     @POST("insertData.php")
     fun insertData(
-        @Field("mahasiswa_nim") nim: String,
-        @Field("mahasiswa_nama") nama: String,
-        @Field("mahasiswa_nohp") nohp: String,
-        @Field("mahasiswa_jurusan") jurusan: String,
-        @Field("mahasiswa_semester") semester: String,
-        @Field("mahasiswa_alamat") alamat: String
+        @Field("nama") nama: String,
+        @Field("nim") nim: String,
+        @Field("nohp") nohp: String,
+        @Field("jurusan") jurusan: String,
+        @Field("semester") semester: String,
+        @Field("alamat") alamat: String
     ): Single<ResponseAnggotaAction>
 
     //Update Data
     @FormUrlEncoded
     @POST("updateData.php")
     fun updateData(
-        @Field("id_mahasiswa") id: String,
-        @Field("mahasiswa_nim") nim: String,
-        @Field("mahasiswa_nama") nama: String,
-        @Field("mahasiswa_nohp") nohp: String,
-        @Field("mahasiswa_jurusan") jurusan: String,
-        @Field("mahasiswa_semester") semester: String,
-        @Field("mahasiswa_alamat") alamat: String
+        @Field("id") id: String,
+        @Field("nim") nim: String,
+        @Field("nama") nama: String,
+        @Field("nohp") nohp: String,
+        @Field("jurusan") jurusan: String,
+        @Field("semester") semester: String,
+        @Field("alamat") alamat: String
     ): Single<ResponseAnggotaAction>
 
     @FormUrlEncoded
     @POST("deleteData.php")
     fun deleteData(
-        @Field("id_mahasiswa") id: String
+        @Field("id") id: String
     ): Single<ResponseAnggotaAction>
 }
