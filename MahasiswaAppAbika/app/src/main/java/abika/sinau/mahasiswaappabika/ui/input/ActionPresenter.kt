@@ -29,9 +29,9 @@ class ActionPresenter(val actionView: ActionView) {
                     actionView.hideProgressBar()
                     actionView.inputError("Nomor HP kurang lengkap")
                 }
-                semester > 14.toString() -> {
+                semester.toInt() > 14 -> {
                     actionView.hideProgressBar()
-                    actionView.inputError("Masukkan semester dengan benar")
+                    actionView.inputError("Semester tidak bisa lebih dari 14")
                 }
                 else -> {
                     actionView.hideProgressBar()
@@ -77,9 +77,9 @@ class ActionPresenter(val actionView: ActionView) {
                     actionView.hideProgressBar()
                     actionView.inputError("Nomor HP kurang lengkap")
                 }
-                semester > 14.toString() -> {
+                semester.toInt() > 14 -> {
                     actionView.hideProgressBar()
-                    actionView.inputError("Masukkan semester dengan benar")
+                    actionView.inputError("Semester tidak bisa lebih dari 14")
                 }
                 else -> {
                     actionView.hideProgressBar()
