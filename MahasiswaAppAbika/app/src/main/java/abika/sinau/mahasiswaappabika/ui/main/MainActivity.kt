@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity(), MainView {
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
+                finishAffinity()
                 true
             }
             else -> true
